@@ -1,0 +1,16 @@
+name: Program Code Linter
+on:
+  push:
+    branches-ignore: [master, main]
+jobs:
+  ProgramCodeLinter:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code in Repository
+        uses: actions/checkout@v3
+      - name: Lint Program Code
+        uses: github/super-linter@v4
+        env:
+          VALIDATE_PYTHON_FLAKE8: true
+          FILTER_REGEX_INCLUDE: ./ProgramCode\.py
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
