@@ -1,0 +1,29 @@
+name: Print Software Versions
+on:
+  push:
+   branches: laboratory-work-4
+jobs:
+    PrintLanguageVersions:
+        runs-on: windows-latest
+        steps:
+            - name: Print Python Version
+              run: python --version
+            - name: Print pip Version
+              run: pip --version
+            - name: Print Node Version
+              run: node --version
+            - name: Print OpenCV Version
+              shell: pwsh
+              run: |
+                pip install --quiet opencv-python-headless
+                python -c "import cv2; print('OpenCV', cv2.__version__)"
+    PrintDBMSVersions:
+        runs-on: windows-latest
+        needs: [PrintLanguageVersions]
+        steps:
+            - name: Install PostgreSQL 17
+              shell: pwsh
+              run: choco install postgresql16 --params '/Password:postgres' -y --no-progress
+            - name: Print PostgreSQL Version
+              shell: pwsh
+              run: '& "C:\Program Files\PostgreSQL\17\bin\psql.exe" --version'
