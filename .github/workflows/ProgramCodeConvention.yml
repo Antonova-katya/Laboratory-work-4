@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code in Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v7
       - name: Lint Program Code
         uses: github/super-linter@v4
         env:
