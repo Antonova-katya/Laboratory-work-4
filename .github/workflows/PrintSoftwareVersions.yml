@@ -1,6 +1,7 @@
 name: Print Software Versions
+
 on:
-  push:
+ push:
    branches: laboratory-work-4
 jobs:
     PrintLanguageVersions:
