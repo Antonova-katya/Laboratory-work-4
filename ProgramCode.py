@@ -1,5 +1,3 @@
-"""Print the name of the software product."""
-
 PRODUCT_NAME = "AR-Marker Tic-Tac-Toe Assistant"
 
 def main():
