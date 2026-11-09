@@ -25,7 +25,7 @@ jobs:
         steps:
             - name: Install PostgreSQL 17
               shell: pwsh
-              run: choco install postgresql16 --params '/Password:postgres' -y --no-progress
+              run: choco install postgresql17 --params '/Password:postgres' -y --no-progress
             - name: Print PostgreSQL Version
               shell: pwsh
               run: '& "C:\Program Files\PostgreSQL\17\bin\psql.exe" --version'
